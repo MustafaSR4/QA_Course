@@ -36,7 +36,7 @@ describe('check login functionality', () => {
         //cy.contains("h3", "Demos") //to check if the text "Demos" is present in the h3 element, it is more stable than other selectors because it is not affected by the changes in the design of the page
         //if there are than one element of h3 so it will pick the first one that contains the text "Demos"
         
-        
+        //test
         
          //these commands after get command
         // cy.url();
