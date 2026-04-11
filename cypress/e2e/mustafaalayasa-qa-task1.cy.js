@@ -28,40 +28,38 @@ describe('TASK 1', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
         cy.get("#LastName").type("Alayasa",{delay: 1000});
     })
-
     it('Email txt', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
         cy.get("[for='Email']")
     })
-    it('Gift card', () => {
+    it.only('Gift card', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
-        cy.get("a[href='/gift-cards']")
-
-    
+        cy.get("a[href='/gift-cards']").eq(2)
     })
-    it.only('Manufacturers', () => {
+    it('Manufacturers', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
-        
+        cy.contains("Manufacturers")
     })
     it('Register button', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
-        
+        cy.get('#register-button').click();
     })
     it('Subscribe button', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
-        
+        cy.get('#newsletter-subscribe-button').click();
     })
+
      it('Contact us button', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
-        
+        cy.get('a[href="/contactus"]').click()
     })
      it('My Account', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
-        
+        cy.contains('h3',"My account")
     })
     
      it('NewLetter field', () => {
         cy.visit("https://demowebshop.tricentis.com/register");
-        
+        cy.get('#newsletter-email').type("Mustasyc@gmail.com",{delay: 100})
     })
 });
