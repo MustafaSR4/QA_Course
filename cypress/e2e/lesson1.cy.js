@@ -7,8 +7,15 @@
 
 //data-test id is an attribute that we can use to locate the elements on the page, it is more stable than other locators like class or id because it is not affected by the changes in the design of the page
 //element selector is the way to locate the element on the page, we can use different types of selectors like id, class, data-test id, etc. but it is recommended to use data-test id because it is more stable than other selectors
+//cy.get(".class") to get the element that has the class "class"
+//cy.get("#id") to get the element that has the id "id"
+//cy.get("[data-test-id='test']") to get the element that has the data-test id "test"
+//cy.contains("text") to get the element that contains the text "text"
+//cy.contains("h1", "text") to get the h1 element that contains the text "text"
+//cy.contains("h1", "text").click() to click on the h1 element that contains the text "text"
+//cy.url() to get the url of the page
+//cy.title() to get the title of the page
 
-describe('check login functionality', () => {
   it('validate that the user can login successfully using valid email and valid password', () => {
     //steps of the test case
         cy.visit("/");
@@ -50,4 +57,4 @@ describe('check login functionality', () => {
   // it('validate that the user cant login successfully using invalid email and valid password', () => {
   //   cy.visit("/");
   // });
-});
+// });
