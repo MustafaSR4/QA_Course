@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+//add custom command (“loginToDemoWebShop”) to login to the demo web shop and use it in the test cases
+//fixture file to store the user data for the demo web shop and use it in the custom command to login to the demo web shop
+Cypress.Commands.add('loginToDemoWebShop', () => {
+    cy.fixture('user_DemoWebStore').then((user) => {
+       
+    cy.visit('https://demowebshop.tricentis.com/login');
+    cy.get("#Email").type(user.email);
+    cy.get("#Password").type(user.password);
+    cy.get(".login-button").click();
+    })
+})

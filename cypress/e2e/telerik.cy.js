@@ -14,6 +14,6 @@ describe('Telerik', () => {
 
     });
 });
-{/* <a href="#reporting" class="NavAlt-anchor u-b0" aria-label="Reporting" data-sf-ec-immutable="" referrerpolicy="no-referrer-when-downgrade">Reporting &amp; Docs</a> */}
+/* <a href="#reporting" class="NavAlt-anchor u-b0" aria-label="Reporting" data-sf-ec-immutable="" referrerpolicy="no-referrer-when-downgrade">Reporting &amp; Docs</a> */
 //get the element that has the class "NavAlt-anchor" and the class "u-b0" and get the next element and get the next element after that
 //
