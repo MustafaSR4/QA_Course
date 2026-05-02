@@ -50,7 +50,6 @@ describe('TASK 2', () => {
       })
       it('Validate that a user can add a product to the shopping cart from the product details page. .', () => {
         cy.visit('https://automationexercise.com/products');
-        cy.visit('https://automationexercise.com/products');
         cy.get('#search_product').type("winter top");
         cy.get('#submit_search').click();
         cy.get ('[href="/product_details/5"]').click();
