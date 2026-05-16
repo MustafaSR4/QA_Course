@@ -28,7 +28,7 @@ describe('TASK 2', () => {
         cy.contains("Account Created!").should("be.visible") 
       })
 
-      it('Validate that an existing user can log in using valid credentials.', () => {
+      it.only('Validate that an existing user can log in using valid credentials.', () => {
         cy.visit('https://automationexercise.com/login');
         cy.get('[data-qa="login-email"]').type(`mustasyc4@gmail.com`);  
         cy.get('[data-qa="login-password"]').type("123456");

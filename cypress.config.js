@@ -7,25 +7,28 @@ import createEsbuildPlugin from "@badeball/cypress-cucumber-preprocessor/esbuild
 
 module.exports = defineConfig({
   //if i wanna play with height and width of the page i can use viewportWidth and viewportHeight(for checking the responsiveness of the page)
-  allowCypressEnv: false,
+  allowCypressEnv: true, //to allow us to use environment variables in the cypress.config.js file and we can access them using Cypress.env() method in the test cases and we can also set them using the command line when we run the test cases using npx cypress run --env key=value  
 
   e2e: {
-        // specPattern: "cypress/e2e/**/*.feature", //.feature for feature files and only show them 
+        specPattern: "cypress/e2e/**/*.feature", //.feature for feature files and only show them 
                 // specPattern: "cypress/e2e/**/*.{feature,cy.js}", //.feature for feature files and only show them 
 
      async setupNodeEvents(on, config) {
-        await addCucumberPreprocessorPlugin(on, config);
-      on('before:run', async () => {
-         "file:preprocessor",
-        createBundler({
-          plugins: [createEsbuildPlugin(config)],
-        })
+  await addCucumberPreprocessorPlugin(on, config);
 
-        await fs.remove('cypress/QAReport');
-      });
-            return config;
+  on(
+    "file:preprocessor",
+    createBundler({
+      plugins: [createEsbuildPlugin(config)],
+    })
+  );
 
-    },
+  on("before:run", async () => {
+    await fs.remove("cypress/QAReport");
+  });
+
+  return config;
+},
     baseUrl: "https://www.saucedemo.com/",
 
     // viewportWidth: 1280,//to set the width of the page to 1280 pixels when we run the test cases and this is useful for checking the responsiveness of the page and for taking screenshot for the test cases that are failed and for the test cases that are passed and for all test cases with a specific width and height
